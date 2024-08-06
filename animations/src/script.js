@@ -37,6 +37,7 @@ const tick = () => {
 
     // mesh.position.x += 0.01;
     mesh.rotation.y += 0.01;
+    mesh.rotation.x += 0.01;
     renderer.render(scene, camera)
     window.requestAnimationFrame(tick)
 }
