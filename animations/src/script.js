@@ -18,13 +18,24 @@ const sizes = {
     height: 600
 }
 
+
+// Cursor
+
+const cursor = {
+    x: 0,
+    y: 0
+}
+window.addEventListener("mousemove", (event) => {
+    cursor.x = event.clientX / sizes.width - 0.5;
+    cursor.y = event.clientY / sizes.height - 0.5;
+})
 // Camera
 // const camera = new THREE.PerspectiveCamera(verticalFieldOfView, aspectRation, nearValue, farValue);
-// const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.01, 100)
+const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.01, 100)
 const aspectRatio = sizes.width / sizes.height;
-const camera = new THREE.OrthographicCamera(-1 * aspectRatio, 1 * aspectRatio, 1, -1, 0.1, 100)
-camera.position.x = 2;
-camera.position.y = 2;
+// const camera = new THREE.OrthographicCamera(-1 * aspectRatio, 1 * aspectRatio, 1, -1, 0.1, 100)
+// camera.position.x = 2;
+// camera.position.y = 2;
 camera.position.z = 2;
 camera.lookAt(mesh.position)
 scene.add(camera)
@@ -46,6 +57,8 @@ const tick = () => {
 
     // mesh.position.x += 0.01;
     mesh.rotation.y += 0.01;
+    // update camera
+    camera.position.x = cursor.x; 
     // mesh.rotation.x += 0.01;
     renderer.render(scene, camera)
     window.requestAnimationFrame(tick)
