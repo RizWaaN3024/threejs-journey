@@ -20,12 +20,17 @@ const sizes = {
 
 // Camera
 // const camera = new THREE.PerspectiveCamera(verticalFieldOfView, aspectRation, nearValue, farValue);
-const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.01, 100)
+// const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.01, 100)
+const aspectRatio = sizes.width / sizes.height;
+const camera = new THREE.OrthographicCamera(-1 * aspectRatio, 1 * aspectRatio, 1, -1, 0.1, 100)
 camera.position.x = 2;
 camera.position.y = 2;
 camera.position.z = 2;
 camera.lookAt(mesh.position)
 scene.add(camera)
+
+// orthographic Camera
+// const camera = new THREE.OrthographicCamera(left, right, top, bottom, near, far)
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({
