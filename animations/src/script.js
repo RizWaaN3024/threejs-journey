@@ -27,7 +27,7 @@ const cursor = {
 }
 window.addEventListener("mousemove", (event) => {
     cursor.x = event.clientX / sizes.width - 0.5;
-    cursor.y = event.clientY / sizes.height - 0.5;
+    cursor.y = -(event.clientY / sizes.height - 0.5);
 })
 // Camera
 // const camera = new THREE.PerspectiveCamera(verticalFieldOfView, aspectRation, nearValue, farValue);
@@ -58,7 +58,9 @@ const tick = () => {
     // mesh.position.x += 0.01;
     mesh.rotation.y += 0.01;
     // update camera
-    camera.position.x = cursor.x; 
+    camera.position.x = Math.sin(cursor.x * Math.PI * 2) * 3; 
+    camera.position.z = Math.cos(cursor.x * Math.PI * 2) * 3;
+    camera.lookAt(mesh.position)
     // mesh.rotation.x += 0.01;
     renderer.render(scene, camera)
     window.requestAnimationFrame(tick)
