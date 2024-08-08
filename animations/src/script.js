@@ -60,6 +60,7 @@ const tick = () => {
     // update camera
     camera.position.x = Math.sin(cursor.x * Math.PI * 2) * 3; 
     camera.position.z = Math.cos(cursor.x * Math.PI * 2) * 3;
+    camera.position.y = cursor.x * 10;
     camera.lookAt(mesh.position)
     // mesh.rotation.x += 0.01;
     renderer.render(scene, camera)
