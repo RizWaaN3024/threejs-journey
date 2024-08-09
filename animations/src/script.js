@@ -44,6 +44,11 @@ scene.add(camera)
 // orthographic Camera
 // const camera = new THREE.OrthographicCamera(left, right, top, bottom, near, far)
 
+// controls
+const controls = new OrbitControls(camera, canvas)
+controls.target.y = 1;
+controls.update()
+
 // Renderer
 const renderer = new THREE.WebGLRenderer({
     canvas: canvas
