@@ -15,9 +15,24 @@ scene.add(mesh)
 
 // Sizes
 const sizes = {
-    width: 800,
-    height: 600
+    width: window.innerWidth,
+    height: window.innerHeight
 }
+
+window.addEventListener('resize', () => {
+    // Update Sizes
+
+    sizes.width = window.innerWidth;
+    sizes.height = window.innerHeight;
+
+    // Update Cmaers
+    camera.aspect = sizes.width / sizes.height;
+    camera.updateProjectionMatrix();
+
+    // Update Renderer
+    renderer.setSize(sizes.width, sizes.height)
+    
+})
 
 
 // Cursor
