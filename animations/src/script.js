@@ -44,7 +44,11 @@ window.addEventListener("dblclick", () => {
             canvas.webkitRequestFullscreen();
         }
     } else {
-        document.exitFullscreen();
+        if(document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if(document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        }
     }
 })
 
