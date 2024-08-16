@@ -22,7 +22,18 @@ const material = new THREE.MeshBasicMaterial({ color: '#ff0000' })
 const mesh = new THREE.Mesh(geometry, material)
 scene.add(mesh)
 
-gui.add(mesh.position, 'y').min(-3).max(3).step(0.1)
+gui
+    .add(mesh.position, 'y')
+    .min(-3)
+    .max(3)
+    .step(0.1)
+    .name('Elevation');
+
+gui.add(mesh, 'visible')
+
+gui.add(material, 'wireframe')
+
+gui.addColor(material, 'color')
 
 /**
  * Sizes
