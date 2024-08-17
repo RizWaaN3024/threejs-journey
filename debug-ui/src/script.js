@@ -5,7 +5,17 @@ import GUI from 'lil-gui'
 import { Wireframe } from 'three/examples/jsm/Addons.js'
 
 
-const gui = new GUI()
+const gui = new GUI({
+    width: 340,
+    title: 'DEBUG UI'
+})
+gui.hide()
+
+window.addEventListener("keydown", (event) => {
+    if (event.key == 'h') {
+        gui.show(gui._hidden)
+    }
+})
 const debugObject = {}
 /**
  * Base
