@@ -15,7 +15,6 @@ const scene = new THREE.Scene()
 //     0, 1, 0,
 //     1, 0, 0
 // ])
-
 // const positionsAttribute = new THREE.BufferAttribute(positionsArray, 3)
 const geometry = new THREE.BufferGeometry();
 // geometry.setAttribute('position', positionsAttribute)
