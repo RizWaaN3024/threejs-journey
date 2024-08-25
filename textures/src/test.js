@@ -22,16 +22,21 @@ loadingManager.onError = () => {
 }
 
 const textureLoader = new THREE.TextureLoader(loadingManager)
-const colorTexture = textureLoader.load('/textures/door/color.jpg')
+const colorTexture = textureLoader.load('/textures/minecraft.png')
 // colorTexture.repeat.x = 3;
 // colorTexture.repeat.y = 3;
-// colorTexture.wrapS = THREE.RepeatWrapping
-// colorTexture.wrapT = THREE.RepeatWrapping
+colorTexture.wrapS = THREE.RepeatWrapping
+colorTexture.wrapT = THREE.RepeatWrapping
 colorTexture.colorSpace = THREE.SRGBColorSpace
 
-colorTexture.rotation = Math.PI / 4;
-colorTexture.center.x = 0.5;
-colorTexture.center.y = 0.5;
+// colorTexture.rotation = Math.PI / 4;
+// colorTexture.center.x = 0.5;
+// colorTexture.center.y = 0.5;
+
+colorTexture.generateMipmaps = false
+
+// colorTexture.minFilter =  THREE.NearestFilter
+colorTexture.magFilter = THREE.NearestFilter
 
 // sizes object
 const sizes = {
