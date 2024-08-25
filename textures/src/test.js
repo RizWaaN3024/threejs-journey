@@ -23,8 +23,16 @@ loadingManager.onError = () => {
 
 const textureLoader = new THREE.TextureLoader(loadingManager)
 const colorTexture = textureLoader.load('/textures/door/color.jpg')
-colorTexture.repeat.x = 3;
+// colorTexture.repeat.x = 3;
+// colorTexture.repeat.y = 3;
+// colorTexture.wrapS = THREE.RepeatWrapping
+// colorTexture.wrapT = THREE.RepeatWrapping
 colorTexture.colorSpace = THREE.SRGBColorSpace
+
+colorTexture.rotation = Math.PI / 4;
+colorTexture.center.x = 0.5;
+colorTexture.center.y = 0.5;
+
 // sizes object
 const sizes = {
     width: window.innerWidth,
