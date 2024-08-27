@@ -10,6 +10,37 @@ const canvas = document.querySelector('canvas.webgl')
 // Scene
 const scene = new THREE.Scene()
 
+// Textures
+
+const textureLoader = new THREE.TextureLoader();
+
+const doorColorTexture = TextureLoader.load('./textures/door/color.jpg')
+
+// objects
+
+// Mesh Basic Material
+const material = new THREE.MeshBasicMaterial();
+const sphere = new THREE.SphereGeometry(0.5, 16, 16)
+const sphereMesh = new THREE.Mesh(sphere, material)
+
+sphereMesh.position.x = -1.5;
+
+// Plane
+
+const plane = new THREE.Mesh(
+    new THREE.PlaneGeometry(1, 1),
+    material
+);
+
+// Torus
+const torus = new THREE.Mesh(
+    new THREE.TorusGeometry(0.3, 0.2, 16, 32),
+    material
+)
+
+torus.position.x = 1.5;
+
+scene.add(sphereMesh, plane, torus)
 /**
  * Sizes
  */
@@ -64,6 +95,16 @@ const clock = new THREE.Clock()
 const tick = () =>
 {
     const elapsedTime = clock.getElapsedTime()
+
+    // Update objects
+
+    sphereMesh.rotation.y = 0.1 * elapsedTime;
+    plane.rotation.y = 0.1 * elapsedTime;
+    torus.rotation.y = 0.1 * elapsedTime;
+
+    sphereMesh.rotation.x = -0.15 * elapsedTime;
+    plane.rotation.x = -0.15 * elapsedTime;
+    torus.rotation.x = -0.15 * elapsedTime;
 
     // Update controls
     controls.update()
