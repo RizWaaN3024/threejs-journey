@@ -30,7 +30,19 @@ matcapTexture.colorSpace = THREE.SRGBColorSpace
 // objects
 
 // Mesh Basic Material
-const material = new THREE.MeshBasicMaterial();
+// const material = new THREE.MeshBasicMaterial({ map: gradientTexture });
+// material.color = new THREE.Color("red")
+// material.wireframe = true;
+// material.transparent = true
+// material.side = THREE.DoubleSide
+
+// Mesh Normal Material
+
+const material = new THREE.MeshNormalMaterial()
+material.flatShading = true
+
+
+
 const sphere = new THREE.SphereGeometry(0.5, 16, 16)
 const sphereMesh = new THREE.Mesh(sphere, material)
 
