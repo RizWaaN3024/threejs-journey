@@ -20,7 +20,6 @@ loadingManager.onLoad = () => {
 loadingManager.onError = () => {
     console.log("Error")
 }
-
 const textureLoader = new THREE.TextureLoader(loadingManager)
 const colorTexture = textureLoader.load('/textures/minecraft.png')
 // colorTexture.repeat.x = 3;
