@@ -1,5 +1,12 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+import GUI from 'lil-gui'
+
+
+// debug
+
+const gui = new GUI()
+
 
 /**
  * Base
@@ -61,11 +68,19 @@ matcapTexture.colorSpace = THREE.SRGBColorSpace
 
 // MeshToonMaterial
 
-const material = new THREE.MeshToonMaterial()
-material.gradientMap = gradientTexture
-gradientTexture.magFilter = THREE.NearestFilter
-gradientTexture.generateMipmaps = false
+// const material = new THREE.MeshToonMaterial()
+// material.gradientMap = gradientTexture
+// gradientTexture.magFilter = THREE.NearestFilter
+// gradientTexture.generateMipmaps = false
 
+
+// MeshStandardMaterial
+const material = new THREE.MeshStandardMaterial();
+material.metalness = 0.45
+material.roughness = 0.65
+
+gui.add(material, 'metalness').min(0).max(1).step(0.0001)
+gui.add(material, 'roughness').min(0).max(1).step(0.0001)
 
 const sphere = new THREE.SphereGeometry(0.5, 16, 16)
 const sphereMesh = new THREE.Mesh(sphere, material)
