@@ -55,9 +55,16 @@ matcapTexture.colorSpace = THREE.SRGBColorSpace
 
 // MeshPhongMaterial
 
-const material = new THREE.MeshPhongMaterial()
-material.shininess = 100;
-material.specular = new THREE.Color(0x1188ff)
+// const material = new THREE.MeshPhongMaterial()
+// material.shininess = 100;
+// material.specular = new THREE.Color(0x1188ff)
+
+// MeshToonMaterial
+
+const material = new THREE.MeshToonMaterial()
+material.gradientMap = gradientTexture
+gradientTexture.magFilter = THREE.NearestFilter
+gradientTexture.generateMipmaps = false
 
 
 const sphere = new THREE.SphereGeometry(0.5, 16, 16)
