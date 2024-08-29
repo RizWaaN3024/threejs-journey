@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import GUI from 'lil-gui'
-
+import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js'
 
 // debug
 
@@ -76,8 +76,8 @@ matcapTexture.colorSpace = THREE.SRGBColorSpace
 
 // MeshStandardMaterial
 const material = new THREE.MeshStandardMaterial();
-material.metalness = 0.45
-material.roughness = 0.65
+material.metalness = 0.7
+material.roughness = 0.2
 
 gui.add(material, 'metalness').min(0).max(1).step(0.0001)
 gui.add(material, 'roughness').min(0).max(1).step(0.0001)
@@ -114,6 +114,16 @@ pointLight.position.x = 2;
 pointLight.position.y = 3;
 pointLight.position.z = 4;
 scene.add(pointLight)
+
+// Environment Map
+
+const rgbeLoader = new RGBELoader()
+rgbeLoader.load('./textures/environmentMap/2k.hdr', (environmentMap) => {
+    environmentMap.mapping = THREE.EquirectangularReflectionMapping
+
+    scene.background = environmentMap
+    scene.environment = environmentMap
+})
 
 /**
  * Sizes
