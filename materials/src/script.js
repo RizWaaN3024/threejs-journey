@@ -76,13 +76,20 @@ matcapTexture.colorSpace = THREE.SRGBColorSpace
 
 // MeshStandardMaterial
 const material = new THREE.MeshStandardMaterial();
-material.metalness = 0.7
-material.roughness = 0.2
+material.metalness = 1
+material.roughness = 1
+material.map = doorColorTexture
+material.aoMap = doorAmbientOcclusionTexture
+material.aoMapIntensity = 1
+material.displacementMap = doorHeightTexture
+material.displacementScale = 0.1
+material.metalnessMap = doorMetalnessTexture
+material.roughnessMap = doorRoughnessTexture
 
 gui.add(material, 'metalness').min(0).max(1).step(0.0001)
 gui.add(material, 'roughness').min(0).max(1).step(0.0001)
 
-const sphere = new THREE.SphereGeometry(0.5, 16, 16)
+const sphere = new THREE.SphereGeometry(0.5, 64, 64)
 const sphereMesh = new THREE.Mesh(sphere, material)
 
 sphereMesh.position.x = -1.5;
@@ -90,13 +97,13 @@ sphereMesh.position.x = -1.5;
 // Plane
 
 const plane = new THREE.Mesh(
-    new THREE.PlaneGeometry(1, 1),
+    new THREE.PlaneGeometry(1, 1, 100, 100),
     material
 );
 
 // Torus
 const torus = new THREE.Mesh(
-    new THREE.TorusGeometry(0.3, 0.2, 16, 32),
+    new THREE.TorusGeometry(0.3, 0.2, 64, 128),
     material
 )
 
@@ -106,14 +113,14 @@ scene.add(sphereMesh, plane, torus)
 
 // Lights
 // THREE.AmbientLight(color, intensity)
-const ambientLight = new THREE.AmbientLight(0xffffff, 1)
-scene.add(ambientLight)
+// const ambientLight = new THREE.AmbientLight(0xffffff, 1)
+// scene.add(ambientLight)
 
-const pointLight = new THREE.PointLight(0xffffff, 30)
-pointLight.position.x = 2;
-pointLight.position.y = 3;
-pointLight.position.z = 4;
-scene.add(pointLight)
+// const pointLight = new THREE.PointLight(0xffffff, 30)
+// pointLight.position.x = 2;
+// pointLight.position.y = 3;
+// pointLight.position.z = 4;
+// scene.add(pointLight)
 
 // Environment Map
 
