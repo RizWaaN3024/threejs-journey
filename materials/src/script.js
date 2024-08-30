@@ -75,7 +75,24 @@ matcapTexture.colorSpace = THREE.SRGBColorSpace
 
 
 // MeshStandardMaterial
-const material = new THREE.MeshStandardMaterial();
+// const material = new THREE.MeshStandardMaterial();
+// material.metalness = 1
+// material.roughness = 1
+// material.map = doorColorTexture
+// material.aoMap = doorAmbientOcclusionTexture
+// material.aoMapIntensity = 1
+// material.displacementMap = doorHeightTexture
+// material.displacementScale = 0.1
+// material.metalnessMap = doorMetalnessTexture
+// material.roughnessMap = doorRoughnessTexture
+// material.normalMap = doorNormalTexture
+// material.normalScale.set(0.5, 0.5)
+
+// gui.add(material, 'metalness').min(0).max(1).step(0.0001)
+// gui.add(material, 'roughness').min(0).max(1).step(0.0001)
+
+// MeshPhysicalMaterial
+const material = new THREE.MeshPhysicalMaterial();
 material.metalness = 1
 material.roughness = 1
 material.map = doorColorTexture
@@ -87,6 +104,38 @@ material.metalnessMap = doorMetalnessTexture
 material.roughnessMap = doorRoughnessTexture
 material.normalMap = doorNormalTexture
 material.normalScale.set(0.5, 0.5)
+
+// clearCoat
+// material.clearcoat = 1
+// material.clearcoatRoughness = 0
+
+
+// Sheen
+// material.sheen = 1
+// material.sheenRoughness = 0.25
+// material.sheenColor.set(1, 1, 1)
+
+// Iridiscence
+// material.iridescence = 1
+// material.iridescenceIOR = 1
+// material.iridescenceThicknessRange = [ 100, 800 ]
+
+
+// gui.add(material, 'iridescence').min(0).max(1).step(0.0001)
+// gui.add(material, 'iridescenceIOR').min(1).max(2.333).step(0.0001)
+// gui.add(material.iridescenceThicknessRange, '0').min(1).max(1000).step(1)
+// gui.add(material.iridescenceThicknessRange, '1').min(1).max(1000).step(1)
+
+
+// Transmission
+material.transmission = 1
+material.ior = 1.5
+material.thickness = 0.5
+
+
+
+// gui.add(material, 'clearcoat').min(0).max(1).step(0.0001)
+// gui.add(material, 'clearcoatRoughness').min(0).max(1).step(0.0001)
 
 gui.add(material, 'metalness').min(0).max(1).step(0.0001)
 gui.add(material, 'roughness').min(0).max(1).step(0.0001)
