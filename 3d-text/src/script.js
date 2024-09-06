@@ -4,9 +4,6 @@ import GUI from 'lil-gui'
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js'
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js'
 
-
-
-
 /**
  * Base
  */
@@ -20,8 +17,8 @@ const canvas = document.querySelector('canvas.webgl')
 const scene = new THREE.Scene()
 
 // Axes  Helper
-// const axesHelper = new THREE.AxesHelper()
-// scene.add(axesHelper)
+const axesHelper = new THREE.AxesHelper()
+scene.add(axesHelper)
 
 /**
  * Textures
