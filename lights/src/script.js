@@ -35,6 +35,11 @@ ambientLight.intensity = 1
 gui.add(ambientLight, 'intensity').min(0).max(3).step(0.01)
 scene.add(ambientLight)
 
+// directional light
+const directionalLight = new THREE.DirectionalLight(0x00fffc, 0.9)
+directionalLight.position.set(1, 0.25, 0)
+scene.add(directionalLight)
+
 /**
  * Objects
  */
