@@ -33,17 +33,35 @@ ambientLight.color = new THREE.Color(0xffffff)
 ambientLight.intensity = 1
 
 gui.add(ambientLight, 'intensity').min(0).max(3).step(0.01)
-scene.add(ambientLight)
+// scene.add(ambientLight)
 
 // directional light
 const directionalLight = new THREE.DirectionalLight(0x00fffc, 0.9)
 directionalLight.position.set(1, 0.25, 0)
-scene.add(directionalLight)
+// scene.add(directionalLight)
 
 // Hemisphere Light
 const hemisphereLight = new THREE.HemisphereLight(0xff00ff, 0x00ff00, 0.9)
-scene.add(hemisphereLight)
+// scene.add(hemisphereLight)
 
+// point Light
+const pointLight = new THREE.PointLight(0xff9000, 0.9)
+pointLight.position.set(1, -0.5, 1)
+// scene.add(pointLight)
+
+// rectAreaLight
+const rectAreaLight = new THREE.RectAreaLight(0x4e00ff, 9, 1, 1)
+rectAreaLight.position.set(-1.5, 0, 1.5)
+rectAreaLight.lookAt(new THREE.Vector3())
+// scene.add(rectAreaLight)
+
+// Spot Light
+const spotLight = new THREE.SpotLight(0x78ff00, 1, 10, Math.PI * 0.1, 0.25, 1)
+spotLight.position.set(0, 2, 3)
+scene.add(spotLight)
+
+spotLight.target.position.x = -0.75
+scene.add(spotLight.target)
 /**
  * Objects
  */
